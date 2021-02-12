@@ -1,4 +1,4 @@
-import { Add } from '../src/index.js'
+import { Add } from '../src'
 
 describe('String Calculator Kata Tests', () => {
   it('should return zero when the parameter is an empty string', () => {
@@ -43,14 +43,20 @@ describe('String Calculator Kata Tests', () => {
   })
 
   it('should throw an exception when input has a negative number, and show that number in the message', () => {
-    const string = '-1,2,3,4,5';
+    const string = '-1,2,3,4,5'
 
     expect(() => Add(string)).toThrow('negatives not allowed -1')
   })
 
   it('should throw an exception when input has multiple negative numbers, and show the numbers in the message', () => {
-    const string = '-1,2,-3,4,-5';
+    const string = '-1,2,-3,4,-5'
 
     expect(() => Add(string)).toThrow('negatives not allowed -1, -3, -5')
   })
+
+  it('should return sum of all numbers but the ones greater than 1000 ', () => {
+    const string = '1,2,1001,4,5'
+    const result = Add(string)
+    expect(result).toBe(12)
+    })
 })
